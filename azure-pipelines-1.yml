@@ -9,7 +9,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-name: 2.1$(Rev:.r)
+name: 2.2$(Rev:.r)
 
 steps:
 - task: NodeTool@0
@@ -25,7 +25,7 @@ steps:
       
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: 'dist'
+    rootFolderOrFile: 'dist/webapp'
     includeRootFolder: false
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/package-dev.zip'

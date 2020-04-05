@@ -22,17 +22,17 @@ steps:
     npm install
     ng build --prod
   displayName: 'npm install and build'
-
+      
 - task: ArchiveFiles@2
-    displayName: 'zip dev build'
-    inputs:
-      rootFolderOrFile: 'dist'
-      includeRootFolder: false
-      archiveType: 'zip'
-      archiveFile: '$(Build.ArtifactStagingDirectory)/package-dev.zip'
-      replaceExistingArchive: true
+  inputs:
+    rootFolderOrFile: 'dist'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/package-dev.zip'
+    replaceExistingArchive: true
       
 - task: PublishBuildArtifacts@1
-      inputs:
-        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: 'drop'
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+

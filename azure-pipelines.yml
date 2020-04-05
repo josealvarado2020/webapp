@@ -16,16 +16,14 @@ steps:
   displayName: 'npm install'
   inputs:
     command: install
-    workingDir: src/webapp
 
 - task: Npm@1
   displayName: 'Build Angular'
   inputs:
     command: custom
     customCommand: run build -- --prod
-    workingDir: src/webapp
 
 - task: PublishPipelineArtifact@0
   inputs:
     artifactName: 'angular'
-    targetPath: 'src/webapp/dist'
+    targetPath: 'dist'
